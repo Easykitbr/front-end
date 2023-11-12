@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'main', component: MainComponent },
   {
   path: '',
-  component: MasterpageComponent}
+  component: LoginComponent}
 ];
 
 @NgModule({

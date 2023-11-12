@@ -1,0 +1,75 @@
+
+
+<div class="bg-image"
+     style="background-image: url('assets/BG-1.png');
+            height: 100vh">
+  <div class="container">
+    <div class="row justify-content-center alert align-items-center">
+      <div class="col-4">
+        <img class="img-fluid" src="assets/LOGO%20FUNDO%20PRETO.png">
+      </div>
+    </div>
+    <div class="row justify-content-center bg-opacity-10">
+      <div class="col-4">
+        <div class="login-container mt-5 bg-opacity-10">
+          <div class="card bg-opacity-10">
+            <div class="card-body bg-opacity-10">
+              <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3 bg-opacity-10">
+                  <label for="email" class="form-label text-light">E-mail</label>
+                  <input type="text" class="form-control" id="email"  formControlName="email" name="email">
+                  <div *ngIf="signupForm.controls['email'].touched && signupForm.controls['email'].errors?.['required']" class="alert alert-danger" role="alert">
+
+                    O campo e-mail é obrigatório
+
+                  </div>
+                  <div *ngIf="signupForm.controls['email'].errors?.['email']" class="alert alert-danger" role="alert">
+                    Por favor insira um e-mail válido
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label text-light">Senha</label>
+                  <input type="password" class="form-control" id="password" formControlName="password" name="password">
+                  <div *ngIf="signupForm.controls['password'].touched && signupForm.controls['password'].errors?.['required']" class="alert alert-danger" role="alert">
+
+                    <span class="text">A senha é obrigatória</span>
+
+                  </div>
+                  <div *ngIf="signupForm.controls['password'].touched && signupForm.controls['password'].errors?.['minlength']" class="alert alert-danger" role="alert">
+                    A senha deve ter pelo menos 6 caracteres
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="passwordconfirmation" class="form-label text-light">Confirme Senha</label>
+                  <input type="password" class="form-control" id="passwordconfirmation" formControlName="passwordconfirmation" name="passwordconfirmation">
+                  <div *ngIf="signupForm.controls['passwordconfirmation'].touched && signupForm.controls['passwordconfirmation'].errors?.['required']" class="alert alert-danger" role="alert">
+
+                    <span class="text">A confirmação de senha é obrigatória</span>
+
+                  </div>
+                  <div *ngIf="signupForm.controls['passwordconfirmation'].touched && signupForm.controls['passwordconfirmation'].errors?.['mustMatch']" class="alert alert-danger" role="alert">
+                    As senhas devem ser iguais.
+                  </div>
+                </div>
+                <div class="row justify-content-center p-2">
+                  <div *ngIf="ocorreuErro" class="alert alert-danger">
+                    <p>Ocorreu um erro ao tentar cadastrar um novo usuário!</p>
+                    <p>{{mensagemErro}}</p>
+                  </div>
+                  <div *ngIf="ocorreuSucesso" class="alert alert-success">
+                    <p>Cadastro efetuado com sucesso!</p>
+                    <p>Você será redirecionado para a tela de login!</p>
+
+                  </div>
+                  <button type="submit" class="btn btn-primary m-1">Cadastrar</button>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

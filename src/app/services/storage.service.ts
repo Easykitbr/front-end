@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
 import { environment } from '../../environments/environment';
 import {ReturnUserDto} from "../dtos/users/returnUser.dto";
+import {TokensDto} from "../dtos/auth/tokens.dto";
 
 @Injectable({
   providedIn: 'root'
 })
   export class StorageService {
-    public chaveUsuarioLogado = 'usuarioLogado';
-    public chaveUsuarioInfo = 'usuarioInfo';
+    public chaveUsuarioLogado = 'usuarioLogadoEasy';
+    public chaveUsuarioInfo = 'usuarioInfoEasy';
     public tokenYoutube="youtube";
 
-  setUsuarioLogado(user: ReturnUserDto): void {
+  setUsuarioLogado(user: TokensDto): void {
     // Encrypt
     let userInfo = CryptoJS.AES.encrypt(JSON.stringify(user), environment.cryptoJSsecretKey).toString();
 
@@ -20,7 +21,9 @@ import {ReturnUserDto} from "../dtos/users/returnUser.dto";
   getUsuarioLogado() {
     let userInfo = this.getItemLocalStorage(this.chaveUsuarioLogado);
     if(!userInfo){
+      console.log(2)
       return null
+
     }
     // Decrypt
     var bytes = CryptoJS.AES.decrypt(userInfo, environment.cryptoJSsecretKey);

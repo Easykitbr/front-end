@@ -14,10 +14,14 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler) {
 
     if(this.storageService.getItemLocalStorage(this.chaveUsuarioLogado)){
+
       let usuarioLogado = this.storageService.getUsuarioLogado();
-      request = request.clone({
-        setHeaders: {Authorization: `Bearer ${usuarioLogado.token}`}
-      });
+      if(usuarioLogado != null){
+        request = request.clone({
+          setHeaders: {Authorization: `Bearer ${usuarioLogado.accessToken}`}
+        });
+      }
+
     }
 
     return next.handle(request).pipe(

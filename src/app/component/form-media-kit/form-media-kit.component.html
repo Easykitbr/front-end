@@ -1,0 +1,31 @@
+<form [formGroup]="mediaKitForm" (ngSubmit)="onSubmit()" class="p-3">
+<div class="modal-body">
+  <!-- Passo 1 -->
+
+    <h5>Configurações do seu Easykit</h5>
+
+      <div class="form-group p-2">
+        <label for="displayName">Nome:</label>
+        <input type="text" class="form-control mt-1" id="displayName" formControlName="displayName" placeholder="Digite o nome">
+      </div>
+      <div class="form-group p-2">
+        <label for="url">url:</label>
+        <input type="text" class="form-control mt-1" id="url" aria-describedby="basic-addon1" formControlName="url" >
+
+       <span class="text"> a url do seu kit ficará </span> <span class="mt-3 badge rounded-pill bg-primary opacity-75"  >https://easykit.com.br/kit/{{mediaKitForm.controls['url'].value}}</span>
+
+      </div>
+    <div class="form-group p-2">
+      <label for="bio">bio:</label>
+      <textarea class="form-control mt-1" id="bio"  formControlName="bio" placeholder="Digite a Bio do seu Media Kit"></textarea>
+    </div>
+
+
+
+  </div>
+<div class="modal-footer">
+  <button type="button" (click)="onSubmit()" class="btn btn-primary m-1">Cadastrar</button>
+  <button type="button" (click)="activeModal.dismiss()" class="btn btn-secondary m-1">Cancelar</button>
+</div>
+</form>
+

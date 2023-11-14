@@ -26,6 +26,9 @@ import {
 } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { SignupComponent } from './Telas/signup/signup.component';
+import { ListaKitComponent } from './component/lista-kit/lista-kit.component';
+import { FormMediaKitComponent } from './component/form-media-kit/form-media-kit.component';
+import {AuthInterceptor} from "./auth-interceptor.interceptor";
 const googleLoginOptions: GoogleInitOptions = {
   oneTapEnabled: false, // default is true
 
@@ -46,7 +49,9 @@ const googleLoginOptions: GoogleInitOptions = {
     CardCountComponent,
     FormatNumberPipe,
     TiktokAuthComponent,
-    SignupComponent
+    SignupComponent,
+    ListaKitComponent,
+    FormMediaKitComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +65,8 @@ const googleLoginOptions: GoogleInitOptions = {
 
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+
     {
 
     provide: 'SocialAuthServiceConfig',

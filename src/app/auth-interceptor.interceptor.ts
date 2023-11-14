@@ -7,7 +7,7 @@ import {StorageService} from "./services/storage.service";
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  public chaveUsuarioLogado = 'usuarioLogado';
+  public chaveUsuarioLogado = 'usuarioLogadoEasy';
 
   constructor(private storageService: StorageService) { }
 

@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from "../../services/user.service";
 import {MustMatch} from "../../helpers/MustMatchValidator";
 import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-signup',
@@ -23,11 +24,11 @@ export class SignupComponent {
 
   constructor(private fb: FormBuilder,
               private router: Router,
-              private userService: UserService) {}
+              private authService: AuthService) {}
 
   onSubmit() {
     if (this.signupForm.valid) {
-    this.userService.Create(this.signupForm.value).subscribe(value => {
+    this.authService.Signup(this.signupForm.value).subscribe(value => {
     this.ocorreuSucesso = true;
     this.signupForm.reset()
       setTimeout(()=>{

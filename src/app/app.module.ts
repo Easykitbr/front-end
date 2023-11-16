@@ -30,8 +30,7 @@ import { ListaKitComponent } from './component/lista-kit/lista-kit.component';
 import { FormMediaKitComponent } from './component/form-media-kit/form-media-kit.component';
 import {AuthInterceptor} from "./auth-interceptor.interceptor";
 const googleLoginOptions: GoogleInitOptions = {
-  oneTapEnabled: false, // default is true
-
+  oneTapEnabled: false,
   scopes: ['email','profile','https://www.googleapis.com/auth/yt-analytics.readonly']
 };
 @NgModule({
@@ -76,7 +75,7 @@ const googleLoginOptions: GoogleInitOptions = {
         {
           id: GoogleLoginProvider.PROVIDER_ID,
 
-          provider: new GoogleLoginProvider('734364187428-ql46bgurnga50am51on38no788egkohm.apps.googleusercontent.com', googleLoginOptions),
+          provider: new GoogleLoginProvider('818528893882-nc0mu503ivl6nsbjje2p8sldshfuttls.apps.googleusercontent.com', googleLoginOptions),
         },
       ],
     } as SocialAuthServiceConfig,

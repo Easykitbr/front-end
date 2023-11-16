@@ -9,7 +9,7 @@ import {ReturnUserDto} from "../dtos/users/returnUser.dto";
 export class MediakitService {
 
 
-  private apiUrl = environment.apiUrl
+    private apiUrl = environment.apiUrl
   constructor(private httpClient: HttpClient) { }
   Create(createMediakitDto: any){
     return this.httpClient.post<any>(`${this.apiUrl}/mediakits`,createMediakitDto);

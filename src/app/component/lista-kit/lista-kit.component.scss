@@ -1,0 +1,15 @@
+.rounded {
+  /* Substitua com a largura desejada para a foto de perfil */
+  width: 50px;
+  height: 50px;
+
+  /* Assegura que a imagem cubra todo o espaço do elemento */
+  object-fit: cover;
+
+  /* Cria um círculo perfeito */
+  border-radius: 90%;
+
+  /* Para alinhar a imagem, caso necessário */
+  display: block;
+  margin: auto;
+}

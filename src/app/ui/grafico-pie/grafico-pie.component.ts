@@ -1,12 +1,11 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 
 @Component({
-  selector: 'app-grafico-donut',
-  templateUrl: './grafico-donut.component.html',
-  styleUrls: ['./grafico-donut.component.scss']
+  selector: 'app-grafico-pie',
+  templateUrl: './grafico-pie.component.html',
+  styleUrls: ['./grafico-pie.component.scss']
 })
-
-export class GraficoDonutComponent  implements OnChanges{
+export class GraficoPieComponent implements OnChanges{
   @Input() labels!: string[];
   @Input() data!: number[];
   @Input() description: string="";

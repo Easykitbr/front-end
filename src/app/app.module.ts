@@ -31,6 +31,7 @@ import { FormMediaKitComponent } from './component/form-media-kit/form-media-kit
 import {AuthInterceptor} from "./auth-interceptor.interceptor";
 import { ModalConfirmationComponent } from './component/modal-confirmation/modal-confirmation.component';
 import { GraficoDonutComponent } from './ui/grafico-donut/grafico-donut.component';
+import { GraficoPieComponent } from './ui/grafico-pie/grafico-pie.component';
 const googleLoginOptions: GoogleInitOptions = {
   oneTapEnabled: false,
   scopes: ['email','profile','https://www.googleapis.com/auth/yt-analytics.readonly']
@@ -54,7 +55,8 @@ const googleLoginOptions: GoogleInitOptions = {
     ListaKitComponent,
     FormMediaKitComponent,
     ModalConfirmationComponent,
-    GraficoDonutComponent
+    GraficoDonutComponent,
+    GraficoPieComponent
   ],
   imports: [
     BrowserModule,

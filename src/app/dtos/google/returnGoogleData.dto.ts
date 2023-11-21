@@ -7,7 +7,7 @@ export class ReturnGoogleDataDto {
   watchTime30days: number=0;
   newSubs30days: number=0;
   ageGroup!:  StringNumberPair[];
-  genderSegmentation: any;
+  genderSegmentation: StringNumberPair[];
   countrySegmentation: any;
   latest5Videos!: YoutubeVideoDto[];
 }

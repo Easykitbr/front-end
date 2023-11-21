@@ -10,7 +10,7 @@ import {EstiverLogadoGuard} from "./estiver-logado.guard";
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'kit/:mediakit', component: KitComponent,canActivate: [EstiverLogadoGuard] },
+  { path: 'kit/:mediakits', component: KitComponent,canActivate: [EstiverLogadoGuard] },
   { path: 'main', component: MainComponent },
   {
   path: '',

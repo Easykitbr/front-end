@@ -4,13 +4,40 @@
   </div>
   <div class="row">
     <div class="col-md-4 col-sm-12 p-3">
-      <app-card-count [description]="'Total de Seguidores'" [qtd]="1500" [classIcon]="'bi bi-youtube btn- btn-danger'" [typeSocial]="'youtube'"></app-card-count>
+      <app-card-count [description]="'Total de Inscritos'"
+                      [qtd]="this.data.totalSubscribers"
+                      [classIcon]="'bi bi-youtube btn- btn-danger'"
+                      [typeSocial]="'youtube'"></app-card-count>
     </div>
     <div class="col-md-4 col-sm-12 p-3">
-      <app-card-count  [description]="'Total de Likes'" [qtd]="45000" [classIcon]="'bi bi-youtube'" [typeSocial]="'youtube'"></app-card-count>
+      <app-card-count  [description]="'Total de views'"
+                       [qtd]="this.data.totalViews"
+                       [classIcon]="'bi bi-youtube'"
+                       [typeSocial]="'youtube'"></app-card-count>
     </div>
     <div class="col-md-4 col-sm-12 p-3">
-      <app-card-count  [description]="'Total de Vídeos'" [qtd]="248" [classIcon]="'bi bi-youtube btn btn-outline-danger'" [typeSocial]="'youtube'"></app-card-count>
+      <app-card-count  [description]="'Tempo de visualização nos últimos 30D'"
+                       [qtd]="this.data.watchTime30days"
+                       [classIcon]="'bi bi-youtube btn btn-outline-danger'"
+                       [typeSocial]="'youtube'"></app-card-count>
+    </div>
+    <div class="col-md-4 col-sm-12 p-3">
+      <app-card-count [description]="'Novos inscritos - Últimos 30D'"
+                      [qtd]="this.data.totalSubscribers"
+                      [classIcon]="'bi bi-youtube btn- btn-danger'"
+                      [typeSocial]="'youtube'"></app-card-count>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-4 col-sm-12 p-3">
+      <app-card-count  [description]="'Distribuição de Gênero'"
+                       [qtd]="this.data.totalViews"
+                       [classIcon]="'bi bi-youtube'" [typeSocial]="'youtube'"></app-card-count>
+    </div>
+    <div class="col-md-4 col-sm-12 p-3">
+      <app-grafico-donut [labels]="dataLabel" [data]="dataValue"  ></app-grafico-donut>
     </div>
   </div>
   <div class="row p-4">

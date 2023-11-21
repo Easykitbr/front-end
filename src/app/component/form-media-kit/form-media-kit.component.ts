@@ -1,25 +1,30 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, Validators} from "@angular/forms";
 import {MustMatch} from "../../helpers/MustMatchValidator";
 import {MediakitService} from "../../services/mediakit.service";
 import {StorageService} from "../../services/storage.service";
 import {Router} from "@angular/router";
+import {GoogleService} from "../../services/google.service";
+
 
 @Component({
   selector: 'app-form-media-kit',
   templateUrl: './form-media-kit.component.html',
    styleUrls: ['./form-media-kit.component.scss'] // se você tiver um arquivo CSS
 })
-export class FormMediaKitComponent {
+export class FormMediaKitComponent implements OnInit{
 
   @Output() submitEvent = new EventEmitter<boolean>();
-
+  passoAtual = 1;
+  urlGoogle = '';
+  @Input() mediaKitId :string='';
   constructor(public activeModal: NgbActiveModal,
               private fb: FormBuilder,
               private router: Router,
               private mediaKitService: MediakitService,
-              private storageService: StorageService) {}
+              private storageService: StorageService,
+              private googleService: GoogleService) {}
 
   // Avança para o próximo passo
 
@@ -38,11 +43,16 @@ export class FormMediaKitComponent {
   }
 
   onSubmit() {
-this.mediaKitService.Create(this.mediaKitForm.value).subscribe(a=>{
-  this.activeModal.close('Form submitted');
-  this.submitEvent.emit(true);
+this.mediaKitService.Create(this.mediaKitForm.value).subscribe(kit=>{
+  this.passoAtual = 2;
+  this.mediaKitId = kit.id;
+  this.googleService.GenerateUrl(kit.id).subscribe(url=>{this.urlGoogle = url;});
+  //this.submitEvent.emit(true);
 },error => {
 
 });
+  }
+
+  ngOnInit(): void {
   }
 }

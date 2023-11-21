@@ -13,3 +13,23 @@
   display: block;
   margin: auto;
 }
+.delete-button {
+  background-color: #ff4d4d; /* Cor de fundo do botão */
+  color: white; /* Cor do texto */
+  border: none; /* Sem borda */
+  border-radius: 50%; /* Torna o botão completamente circular */
+  width: 20px; /* Largura do botão */
+  height: 20px; /* Altura do botão */
+  display: flex; /* Usa flexbox para alinhamento */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  font-size: 10px; /* Tamanho da fonte */
+  cursor: pointer; /* Cursor em forma de ponteiro */
+  position: absolute; /* Posicionamento absoluto */
+  top: 10px; /* Posição superior no card */
+  right: 10px; /* Posição à direita no card */
+}
+
+.delete-button:hover {
+  background-color: #ff3333; /* Cor de fundo quando passa o mouse */
+}

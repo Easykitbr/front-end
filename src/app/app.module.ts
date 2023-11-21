@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ChartjsModule } from '@coreui/angular-chartjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -29,6 +29,8 @@ import { SignupComponent } from './Telas/signup/signup.component';
 import { ListaKitComponent } from './component/lista-kit/lista-kit.component';
 import { FormMediaKitComponent } from './component/form-media-kit/form-media-kit.component';
 import {AuthInterceptor} from "./auth-interceptor.interceptor";
+import { ModalConfirmationComponent } from './component/modal-confirmation/modal-confirmation.component';
+import { GraficoDonutComponent } from './ui/grafico-donut/grafico-donut.component';
 const googleLoginOptions: GoogleInitOptions = {
   oneTapEnabled: false,
   scopes: ['email','profile','https://www.googleapis.com/auth/yt-analytics.readonly']
@@ -50,7 +52,9 @@ const googleLoginOptions: GoogleInitOptions = {
     TiktokAuthComponent,
     SignupComponent,
     ListaKitComponent,
-    FormMediaKitComponent
+    FormMediaKitComponent,
+    ModalConfirmationComponent,
+    GraficoDonutComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,8 @@ const googleLoginOptions: GoogleInitOptions = {
     SocialLoginModule,
     GoogleSigninButtonModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartjsModule
 
   ],
   providers: [

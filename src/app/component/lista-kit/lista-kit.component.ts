@@ -4,6 +4,7 @@ import {FormMediaKitComponent} from "../form-media-kit/form-media-kit.component"
 import {MediakitService} from "../../services/mediakit.service";
 import {GoogleService} from "../../services/google.service";
 import {Router} from "@angular/router";
+import {ModalConfirmationComponent} from "../modal-confirmation/modal-confirmation.component";
 
 @Component({
   selector: 'app-lista-kit',
@@ -31,7 +32,6 @@ carregalista(){
   this.kitsService.ListAll().subscribe(a=>{
     this.listaKit = a;
     this.listaKit.forEach((kit)=>{
-      this.googleService.GenerateUrl(kit.id).subscribe(a=>{kit.urlGoogle = a;});
 
     });
   })
@@ -46,13 +46,26 @@ this.carregalista()
     const interval = setInterval(() => {
       if (popup?.closed) {
         clearInterval(interval);
-        console.log('Popup fechada');
-        // Executar ações após o fechamento da popup
       }
     }, 1000);
   }
 
   RedirectTo(url:string) {
     this.router.navigate(['kit/'+url])
+  }
+
+  DeletarKit(id:string) {
+    const modalRef = this.modalService.open(ModalConfirmationComponent);
+    modalRef.componentInstance.mensagemAlerta = "Deseja realmente remover o seu EasyKit?"
+    modalRef.componentInstance.submitEvent.subscribe((d:boolean) => {
+      if (d){ this.kitsService.Delete(id).subscribe(a=>{
+
+        this.carregalista()
+      });
+
+      }
+      // Faça algo com os dados do evento
+    });
+
   }
 }

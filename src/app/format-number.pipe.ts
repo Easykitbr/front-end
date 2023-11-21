@@ -7,7 +7,7 @@ export class FormatNumberPipe implements PipeTransform {
 
   transform(value: any, showDecimal: boolean = true): any {
     if (!value) {
-      return '';
+      return '-';
     }
 
     // Arredondar para 2 casas decimais apenas se showDecimal for verdadeiro
